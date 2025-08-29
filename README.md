@@ -4,33 +4,31 @@
 
 [作者相关](https://space.bilibili.com/516691966?spm_id_from=333.1007.0.0)
 
+# where-it 2.x
 
+```python
+	server.register_help_message('whall', '查询所有坐标')
+	server.register_help_message('wh <name>', '查询指定名字的坐标')
+	server.register_help_message('whadd <name> <x> <y> <z> <dimension>', '添加坐标，dimension为0,1,-1；0为主世界，1为末地，-1为地狱')
+	server.register_help_message('whre <name>', '删除坐标')
+	server.register_help_message('whaddhere <name> <player>', '获取玩家坐标并添加(需要rcon权限，应为奇葩的原因目前不可用)')
+	server.register_help_message('gl <xx> <yy> <zz> <dimension>', '高亮一个坐标，dimension为0,1,-1；0为主世界，1为末地，-1为地狱')
+```
 
-## 使用相关
+使用方法全在上面的help了，这里只讲腐竹怎么怎么安装
 
-`where_it`是一个服务端插件，对于客户端搭配  [Oh My MineCraft Client](https://github.com/plusls/oh-my-minecraft-client)  食用效果最佳。
+## 安装
 
+首先把py文件放在MCDR的插件目录下
 
+然后创建一个`xxx.yaml`文件
 
-在把`py`文件放入`MCDR`的插件目录下之后还需要修改`py`文件当中的`url`&`op`变量
+打开py文件修改变量
 
-其中`url`为你用来存放坐标的`txt`文件绝对路径，`op`为管理玩家的列表。
+```python
+url = 'E:\server-demo\MCDReforged-master\config\config.yaml'
+op = ['zhenai_', 'Happywater_']
+```
 
-## 交互方式
+其中url是你的 `xxx,yaml`的绝对路径用来存放坐标，op 是可以删除坐标的玩家（其他玩家可以添加坐标但不能删除）
 
-`where_it`是通过命令的方式进行交互，其中所有玩家都可以使用的有`where`，管理在此之上还有`make`,`remove`。
-
-## 指令的具体介绍
-
-`where-it_all  `列出所有坐标
-
-`where-it <name>  查找与<name>`相关的坐标
-
-
-
-对于管理成员--------------
-
-`make <维度> <name> <xx> <zz> `添加为name的坐标，地域和主世界的坐标会自动转换
-01 末地，00 主世界，-1 地域
-
-`remove-last `删除最后一个添加的坐标
